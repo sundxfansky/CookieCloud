@@ -38,6 +38,7 @@ app.post(`${api_root}/update`, (req, res) => {
     const content = JSON.stringify({"encrypted":encrypted});
     fs.writeFileSync(file_path, content);
     if( fs.readFileSync(file_path) == content )
+        console.log('recv ',uuid)
         res.json({"action":"done"});
     else
         res.json({"action":"error"});
